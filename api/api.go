@@ -37,7 +37,7 @@ func Init(url string, apiKey string) *XF {
 }
 
 // Request func.
-func (xf *XF) Request(method string, params Params) (response []byte, err error) {
+func (xf *XF) Request(reqType string, method string, params Params) (response []byte, err error) {
 
 	query := url.Values{}
 
@@ -45,7 +45,7 @@ func (xf *XF) Request(method string, params Params) (response []byte, err error)
 
 	reqRaw := bytes.NewBufferString(query.Encode())
 
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s/%s", xf.APIEndpoint, method), reqRaw)
+	req, err := http.NewRequest(reqType, fmt.Sprintf("%s/%s", xf.APIEndpoint, method), reqRaw)
 	if err != nil {
 		return
 	}
@@ -77,9 +77,9 @@ func (xf *XF) Request(method string, params Params) (response []byte, err error)
 }
 
 // RequestUnmarshal decodes the JSON from the response.
-func (xf *XF) RequestUnmarshal(method string, params Params, obj interface{}) error {
+func (xf *XF) RequestUnmarshal(reqType string, method string, params Params, obj interface{}) error {
 
-	resp, err := xf.Request(method, params)
+	resp, err := xf.Request(reqType, method, params)
 	if err != nil {
 		return err
 	}
