@@ -14,8 +14,7 @@ type Pagination struct {
 // Error struct.
 type Error struct {
 	Errors []struct {
-		Code    string            `json:"code"`
-		Message string            `json:"message"`
-		Params  map[string]string `json:"params"`
+		Code    string `json:"code"`
+		Message string `json:"message"`
 	} `json:"errors"`
 }
