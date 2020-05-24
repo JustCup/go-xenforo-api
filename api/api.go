@@ -26,13 +26,14 @@ type Params map[string]interface{}
 // Init XF API.
 //
 // Insert APIEndpoint(full url without, example: https://example.com/forum/api) and XenForo API key.
-func Init(url string, apiKey string) (xf *XF) {
+func Init(url string, apiKey string) *XF {
+	var xf XF
 	xf.APIEndpoint = url
 	xf.XFAPIKey = apiKey
 
 	// TODO(JustCup): check data
 
-	return
+	return &xf
 }
 
 // Request func.
