@@ -51,6 +51,7 @@ func (xf *XF) Request(method string, params Params) (response []byte, err error)
 	}
 
 	req.Header.Set("User-Agent", UserAgent)
+	req.Header.Set("XF-Api-Key", xf.XFAPIKey)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 	client := &http.Client{}
@@ -61,8 +62,6 @@ func (xf *XF) Request(method string, params Params) (response []byte, err error)
 	defer resp.Body.Close()
 
 	body, _ := ioutil.ReadAll(resp.Body)
-
-	fmt.Println(string(body))
 
 	if resp.StatusCode != 200 {
 		var e object.Error
