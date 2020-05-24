@@ -62,6 +62,8 @@ func (xf *XF) Request(method string, params Params) (response []byte, err error)
 
 	body, _ := ioutil.ReadAll(resp.Body)
 
+	fmt.Println(string(body))
+
 	if resp.StatusCode != 200 {
 		var e object.Error
 		err := json.Unmarshal(body, &e)
