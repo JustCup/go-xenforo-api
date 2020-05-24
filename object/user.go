@@ -4,17 +4,18 @@ package object // import "github.com/JustCup/go-xenforo-api/object"
 //
 // Information about the user. Different information will be included based on permissions and verbosity.
 type User struct {
-	About                         string            `json:"about"`                            // Returned only if permissions are met. Verbose results only.
-	ActivityVisible               bool              `json:"activity_visible"`                 // Returned only if permissions are met.
-	Age                           int               `json:"age,omitempty"`                    // The user's current age. Only included if available.
-	AlertOptout                   []string          `json:"alert_optout"`                     // Returned only if permissions are met. Verbose results only.
-	AllowPostProfile              string            `json:"allow_post_profile"`               // Returned only if permissions are met. Verbose results only.
-	AllowReceiveNewsFeed          string            `json:"allow_receive_news_feed"`          // Returned only if permissions are met. Verbose results only.
-	AllowSendPersonalConversation string            `json:"allow_send_personal_conversation"` // Returned only if permissions are met. Verbose results only.
-	AllowViewIdentities           string            `json:"allow_view_identities"`            // Returned only if permissions are met. Verbose results only.
-	AllowViewProfile              string            `json:"allow_view_profile"`               // Returned only if permissions are met. Verbose results only.
-	AvatarURLs                    map[string]string `json:"avatar_urls"`                      // Maps from size types to URL.
+	About                         string            `json:"about"`                                      // Returned only if permissions are met. Verbose results only.
+	ActivityVisible               bool              `json:"activity_visible,omitempty"`                 // Returned only if permissions are met.
+	Age                           int               `json:"age,omitempty"`                              // The user's current age. Only included if available.
+	AlertOptout                   []string          `json:"alert_optout,omitempty"`                     // Returned only if permissions are met. Verbose results only.
+	AllowPostProfile              string            `json:"allow_post_profile,omitempty"`               // Returned only if permissions are met. Verbose results only.
+	AllowReceiveNewsFeed          string            `json:"allow_receive_news_feed,omitempty"`          // Returned only if permissions are met. Verbose results only.
+	AllowSendPersonalConversation string            `json:"allow_send_personal_conversation,omitempty"` // Returned only if permissions are met. Verbose results only.
+	AllowViewIdentities           string            `json:"allow_view_identities,omitempty"`            // Returned only if permissions are met. Verbose results only.
+	AllowViewProfile              string            `json:"allow_view_profile,omitempty"`               // Returned only if permissions are met. Verbose results only.
+	AvatarURLs                    map[string]string `json:"avatar_urls"`                                // Maps from size types to URL.
 	CanBan                        bool              `json:"can_ban"`
+	CanConverse                   bool              `json:"can_converse"`
 	CanEdit                       bool              `json:"can_edit"`
 	CanFollow                     bool              `json:"can_follow"`
 	CanIgnore                     bool              `json:"can_ignore"`
@@ -22,44 +23,44 @@ type User struct {
 	CanViewProfile                bool              `json:"can_view_profile"`
 	CanViewProfilePosts           bool              `json:"can_view_profile_posts"`
 	CanWarn                       bool              `json:"can_warn"`
-	ContentShowSignature          bool              `json:"content_show_signature"` // Returned only if permissions are met. Verbose results only.
-	CreationWatchState            string            `json:"creation_watch_state"`   // Returned only if permissions are met. Verbose results only.
-	CustomFields                  map[string]string `json:"custom_fields"`          // Returned only if permissions are met. Map of custom field keys and values.
-	CustomTitle                   string            `json:"custom_title"`           // Returned only if permissions are met. Will have a value if a custom title has been specifically set; prefer user_title instead.
-	DOB                           map[string]string `json:"dob"`                    // Returned only if permissions are met. Date of birth with year, month and day keys.
-	Email                         string            `json:"email"`                  // Returned only if permissions are met.
-	EmailOnConversation           string            `json:"email_on_conversation"`  // Returned only if permissions are met.
-	Gravatar                      string            `json:"gravatar"`
-	InteractionWatchState         bool              `json:"interaction_watch_state"`
-	IsAdmin                       bool              `json:"is_admin"`
-	IsBanned                      bool              `json:"is_banned"`
-	IsDiscouraged                 bool              `json:"is_discouraged"`
-	IsFollowed                    bool              `json:"is_followed"` // True if the visitor is following this user. Only included if visitor is not a guest.
-	IsIgnored                     bool              `json:"is_ignored"`  // True if the visitor is ignoring this user. Only included if visitor is not a guest.
-	IsModerator                   bool              `json:"is_moderator"`
-	IsSuperAdmin                  bool              `json:"is_super_admin"`
-	LastActivity                  int               `json:"last_activity"` // Unix timestamp of user's last activity, if available.
-	Location                      string            `json:"location"`
-	PushOnConversation            bool              `json:"push_on_conversation"`
-	PushOptout                    []string          `json:"push_optout"`
-	ReceiveAdminEmail             bool              `json:"receive_admin_email"`
-	SecondaryGroupIDs             []int             `json:"secondary_group_ids"`
-	ShowDOBDate                   bool              `json:"show_dob_date"`
-	ShowDOBYear                   bool              `json:"show_dob_year"`
-	Signature                     string            `json:"signature"`
-	Timezone                      string            `json:"timezone"`
-	UsaTFA                        bool              `json:"usa_tfa"` // (?) use_tfa in endpoints
-	UserGroupID                   int               `json:"user_group_id"`
-	UserState                     string            `json:"user_state"`
-	UserTitle                     string            `json:"user_title"`
-	Visible                       bool              `json:"visible"`
-	WarningPoints                 int               `json:"warning_points"` // Current warning points.
+	ContentShowSignature          bool              `json:"content_show_signature,omitempty"` // Returned only if permissions are met. Verbose results only.
+	CreationWatchState            string            `json:"creation_watch_state,omitempty"`   // Returned only if permissions are met. Verbose results only.
+	CustomFields                  map[string]string `json:"custom_fields"`                    // Returned only if permissions are met. Map of custom field keys and values.
+	CustomTitle                   string            `json:"custom_title,omitempty"`           // Returned only if permissions are met. Will have a value if a custom title has been specifically set; prefer user_title instead.
+	DOB                           map[string]string `json:"dob,omitempty"`                    // Returned only if permissions are met. Date of birth with year, month and day keys.
+	Email                         string            `json:"email,omitempty"`                  // Returned only if permissions are met.
+	EmailOnConversation           string            `json:"email_on_conversation,omitempty"`  // Returned only if permissions are met.
+	Gravatar                      string            `json:"gravatar,omitempty"`
+	InteractionWatchState         bool              `json:"interaction_watch_state,omitempty"`
+	IsAdmin                       bool              `json:"is_admin,omitempty"`
+	IsBanned                      bool              `json:"is_banned,omitempty"`
+	IsDiscouraged                 bool              `json:"is_discouraged,omitempty"`
+	IsFollowed                    bool              `json:"is_followed,omitempty"` // True if the visitor is following this user. Only included if visitor is not a guest.
+	IsIgnored                     bool              `json:"is_ignored,omitempty"`  // True if the visitor is ignoring this user. Only included if visitor is not a guest.
+	IsModerator                   bool              `json:"is_moderator,omitempty"`
+	IsSuperAdmin                  bool              `json:"is_super_admin,omitempty"`
+	LastActivity                  int               `json:"last_activity,omitempty"` // Unix timestamp of user's last activity, if available.
+	Location                      string            `json:"location,omitempty"`
+	PushOnConversation            bool              `json:"push_on_conversation,omitempty"`
+	PushOptout                    []string          `json:"push_optout,omitempty"`
+	ReceiveAdminEmail             bool              `json:"receive_admin_email,omitempty"`
+	SecondaryGroupIDs             []int             `json:"secondary_group_ids,omitempty"`
+	ShowDOBDate                   bool              `json:"show_dob_date,omitempty"`
+	ShowDOBYear                   bool              `json:"show_dob_year,omitempty"`
+	Signature                     string            `json:"signature,omitempty"`
+	Timezone                      string            `json:"timezone,omitempty"`
+	UsaTFA                        bool              `json:"usa_tfa,omitempty"` // (?) use_tfa in endpoints
+	UserGroupID                   int               `json:"user_group_id,omitempty"`
+	UserState                     string            `json:"user_state,omitempty"`
+	UserTitle                     string            `json:"user_title,omitempty"`
+	Visible                       bool              `json:"visible,omitempty"`
+	WarningPoints                 int               `json:"warning_points,omitempty"` // Current warning points.
 	Website                       string            `json:"website"`
 	UserID                        int               `json:"user_id"`
 	Username                      string            `json:"username"`
 	MessageCount                  int               `json:"message_count"`
 	RegisterDate                  int               `json:"register_date"`
-	TrophyPoints                  int               `json:"trophy_points"`
+	TrophyPoints                  int               `json:"trophy_points,omitempty"`
 	IsStaff                       bool              `json:"is_staff"`
 	ReactionScore                 int               `json:"reaction_score"`
 }
