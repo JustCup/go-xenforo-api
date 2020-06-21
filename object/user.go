@@ -65,20 +65,21 @@ type User struct {
 	ReactionScore                 int               `json:"reaction_score"`
 }
 
-// UserFindName struct.
-type UserFindName struct {
-	Exact           *User  `json:"exact,omitempty"` // The user that matched the given username exactly. Empty struct or user info. TODO: refactor(make NULL great again)
+// UserGetFindName struct.
+type UserGetFindName struct {
+	Exact           User   `json:"exact,omitempty"` // The user that matched the given username exactly. Empty struct or user info. TODO: refactor(make NULL great again)
 	Recommendations []User `json:"recommendations"` // A list of users that match the prefix of the username (but not exactly)
 }
 
-// ProfilePosts struct.
-type ProfilePosts struct {
-	//
+// UsersGet struct.
+type UsersGet struct {
+	Users      []User     `json:"users"`
+	Pagination Pagination `json:"pagination,omitempty"`
 }
 
-// UsersGet stuct.
-type UsersGet struct {
-	User         User           `json:"user"`
-	ProfilePosts []ProfilePosts `json:"profile_posts,omitempty"` // List of profile posts on the requested page
-	Pagination   Pagination     `json:"pagination,omitempty"`    // Pagination details
+// UsersGetID stuct.
+type UsersGetID struct {
+	User         User          `json:"user"`
+	ProfilePosts []ProfilePost `json:"profile_posts,omitempty"` // List of profile posts on the requested page
+	Pagination   Pagination    `json:"pagination,omitempty"`    // Pagination details
 }

@@ -5,12 +5,32 @@ import (
 	"github.com/JustCup/go-xenforo-api/object"
 )
 
+// UsersGet funciton.
+//
+// Gets a list of users (alphabetically).
+//
+// https://xenforo.com/community/pages/api-endpoints/#route_get_users_id_
+func (xf *XF) UsersGet(params Params) (response object.UsersGet, err error) {
+	err = xf.RequestUnmarshal("GET", "users", params, &response)
+	return
+}
+
+// UsersFindName function.
+//
+// Finds users by a prefix of their user name.
+//
+// https://xenforo.com/community/pages/api-endpoints/#route_get_users_find_name
+func (xf *XF) UsersFindName(params Params) (response object.UserGetFindName, err error) {
+	err = xf.RequestUnmarshal("GET", "users/find-name", params, &response)
+	return
+}
+
 // UsersGetID funciton.
 //
 // Gets information about the specified user.
 //
 // https://xenforo.com/community/pages/api-endpoints/#route_get_users_id_
-func (xf *XF) UsersGetID(id int, params Params) (response object.UsersGet, err error) {
+func (xf *XF) UsersGetID(id int, params Params) (response object.UsersGetID, err error) {
 	err = xf.RequestUnmarshal("GET", fmt.Sprintf("%s/%d/", "users", id), params, &response)
 	return
 }
