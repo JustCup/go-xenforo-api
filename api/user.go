@@ -15,6 +15,16 @@ func (xf *XF) UsersGet(params Params) (response object.UsersGet, err error) {
 	return
 }
 
+// UsersCreate funciton.
+//
+// Creates a user.
+//
+// https://xenforo.com/community/pages/api-endpoints/#route_post_users_
+func (xf *XF) UsersCreate(params Params) (response object.UserCreate, err error) {
+	err = xf.RequestUnmarshal("POST", "users", params, &response)
+	return
+}
+
 // UsersFindName function.
 //
 // Finds users by a prefix of their user name.

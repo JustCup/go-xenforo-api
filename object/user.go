@@ -83,3 +83,9 @@ type UsersGetID struct {
 	ProfilePosts []ProfilePost `json:"profile_posts,omitempty"` // List of profile posts on the requested page
 	Pagination   Pagination    `json:"pagination,omitempty"`    // Pagination details
 }
+
+// UserCreate struct.
+type UserCreate struct {
+	Success bool `json:"success"`
+	User    User `json:"user"`
+}
