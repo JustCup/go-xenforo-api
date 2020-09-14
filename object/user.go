@@ -29,7 +29,7 @@ type User struct {
 	CustomTitle                   string            `json:"custom_title,omitempty"`           // Returned only if permissions are met. Will have a value if a custom title has been specifically set; prefer user_title instead.
 	DOB                           DOB               `json:"dob,omitempty"`                    // Returned only if permissions are met. Date of birth with year, month and day keys.
 	Email                         string            `json:"email,omitempty"`                  // Returned only if permissions are met.
-	EmailOnConversation           string            `json:"email_on_conversation,omitempty"`  // Returned only if permissions are met.
+	EmailOnConversation           bool              `json:"email_on_conversation,omitempty"`  // Returned only if permissions are met.
 	Gravatar                      string            `json:"gravatar,omitempty"`
 	InteractionWatchState         bool              `json:"interaction_watch_state,omitempty"`
 	IsAdmin                       bool              `json:"is_admin,omitempty"`
