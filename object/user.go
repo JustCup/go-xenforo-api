@@ -27,7 +27,7 @@ type User struct {
 	CreationWatchState            string            `json:"creation_watch_state,omitempty"`   // Returned only if permissions are met. Verbose results only.
 	CustomFields                  map[string]string `json:"custom_fields"`                    // Returned only if permissions are met. Map of custom field keys and values.
 	CustomTitle                   string            `json:"custom_title,omitempty"`           // Returned only if permissions are met. Will have a value if a custom title has been specifically set; prefer user_title instead.
-	DOB                           map[string]string `json:"dob,omitempty"`                    // Returned only if permissions are met. Date of birth with year, month and day keys.
+	DOB                           DOB               `json:"dob,omitempty"`                    // Returned only if permissions are met. Date of birth with year, month and day keys.
 	Email                         string            `json:"email,omitempty"`                  // Returned only if permissions are met.
 	EmailOnConversation           string            `json:"email_on_conversation,omitempty"`  // Returned only if permissions are met.
 	Gravatar                      string            `json:"gravatar,omitempty"`

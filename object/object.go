@@ -11,6 +11,13 @@ type Pagination struct {
 	Total       int `json:"total"`
 }
 
+// DOB struct.
+type DOB struct {
+	Year  int `json:"year,omitempty"`
+	Day   int `json:"day"`
+	Month int `json:"month"`
+}
+
 // Error struct.
 type Error struct {
 	Errors []struct {
