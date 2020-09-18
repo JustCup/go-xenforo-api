@@ -31,7 +31,7 @@ type User struct {
 	Email                         string            `json:"email,omitempty"`                  // Returned only if permissions are met.
 	EmailOnConversation           bool              `json:"email_on_conversation,omitempty"`  // Returned only if permissions are met.
 	Gravatar                      string            `json:"gravatar,omitempty"`
-	InteractionWatchState         bool              `json:"interaction_watch_state,omitempty"`
+	InteractionWatchState         string            `json:"interaction_watch_state,omitempty"`
 	IsAdmin                       bool              `json:"is_admin,omitempty"`
 	IsBanned                      bool              `json:"is_banned,omitempty"`
 	IsDiscouraged                 bool              `json:"is_discouraged,omitempty"`
