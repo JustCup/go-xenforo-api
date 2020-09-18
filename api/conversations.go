@@ -35,12 +35,22 @@ func (xf *XF) ConversationsGet(params Params) (response object.ConversationsResp
 	return
 }
 
+// ConversationsCreate funciton.
+//
+// Creates a conversation.
+//
+// https://xenforo.com/community/pages/api-endpoints/#route_post_conversations_
+func (xf *XF) ConversationsCreate(params Params) (response object.ConversationsResponse, err error) {
+	err = xf.RequestUnmarshal("POST", "conversations", params, &response)
+	return
+}
+
 // ConversationsGetID funciton.
 //
 // Gets information about the specified conversation.
 //
 // https://xenforo.com/community/pages/api-endpoints/#route_get_conversations_id_
-func (xf *XF) ConversationsGetID(id int) (response object.ConversationsIDResponse, err error) {
+func (xf *XF) ConversationsGetID(id int) (response object.ConversationsResponse, err error) {
 	err = xf.RequestUnmarshal("GET", fmt.Sprintf("conversations/%d/", id), Params{}, &response)
 	return
 }
