@@ -40,7 +40,7 @@ func (xf *XF) ConversationsGet(params Params) (response object.ConversationsResp
 // Gets information about the specified conversation.
 //
 // https://xenforo.com/community/pages/api-endpoints/#route_get_conversations_id_
-func (xf *XF) ConversationsGetID(id int) (response object.ConversationsResponse, err error) {
+func (xf *XF) ConversationsGetID(id int) (response object.ConversationsIDResponse, err error) {
 	err = xf.RequestUnmarshal("GET", fmt.Sprintf("conversations/%d/", id), Params{}, &response)
 	return
 }

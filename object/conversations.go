@@ -49,10 +49,16 @@ type ConversationMessagesResponse struct {
 	Message ConversationMessage `json:"message"`
 }
 
-// ConversationsResponse sturct.
-type ConversationsResponse struct {
+// ConversationsIDResponse sturct.
+type ConversationsIDResponse struct {
 	Success      bool                  `json:"success,omitempty"`
 	Conversation Conversation          `json:"conversation"`
 	Messages     []ConversationMessage `json:"messages"`
 	Pagination   Pagination            `json:"pagination"`
+}
+
+// ConversationsResponse sturct.
+type ConversationsResponse struct {
+	Conversations []Conversation `json:"conversations"`
+	Pagination    Pagination     `json:"pagination"`
 }
