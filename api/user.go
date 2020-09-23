@@ -50,7 +50,7 @@ func (xf *XF) UsersGetID(id int, params Params) (response object.UsersGetID, err
 // Updates an existing user.
 //
 // https://xenforo.com/community/pages/api-endpoints/#route_post_users_id_
-func (xf *XF) UsersEdit(id int, params Params) (response object.UsersGetID, err error) {
+func (xf *XF) UsersEdit(id int, params Params) (response object.UserCreate, err error) {
 	err = xf.RequestUnmarshal("POST", fmt.Sprintf("%s/%d/", "users", id), params, &response)
 	return
 }
