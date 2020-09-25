@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"strconv"
 
 	goxenforoapi "github.com/JustCup/go-xenforo-api"
 	"github.com/JustCup/go-xenforo-api/object"
@@ -90,7 +91,7 @@ func (xf *XF) RequestUnmarshal(reqType string, method string, params Params, obj
 // FormatParams function.
 func FormatParams(q *url.Values, params Params) {
 	for k, v := range params {
-		key, val := FormatValue(v, k)
+		key, val := FormatValue(v, k, q)
 		if key != "" && val != "" {
 			q.Set(key, val)
 		}
@@ -98,7 +99,7 @@ func FormatParams(q *url.Values, params Params) {
 }
 
 // FormatValue function.
-func FormatValue(value interface{}, key string) (k, v string) {
+func FormatValue(value interface{}, key string, q *url.Values) (k, v string) {
 	if value == nil || key == "" {
 		return
 	}
@@ -108,8 +109,16 @@ func FormatValue(value interface{}, key string) (k, v string) {
 		return key, fmt.Sprintf("%t", iface)
 	case Params:
 		for kI, vI := range iface {
-			keyAns, valAns := FormatValue(vI, kI)
-			return fmt.Sprintf("%s[%s]", key, keyAns), valAns
+			keyAns, valAns := FormatValue(vI, kI, q)
+			q.Set(fmt.Sprintf("%s[%s]", key, keyAns), valAns)
+		}
+	case []int:
+		for _, val := range iface {
+			if q.Get(fmt.Sprintf("%s[]", key)) != "" {
+				q.Add(fmt.Sprintf("%s[]", key), strconv.Itoa(val))
+			} else {
+				q.Set(fmt.Sprintf("%s[]", key), strconv.Itoa(val))
+			}
 		}
 	default:
 		return key, fmt.Sprintf("%v", iface)
