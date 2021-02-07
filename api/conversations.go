@@ -5,7 +5,7 @@ import (
 	"github.com/JustCup/go-xenforo-api/object"
 )
 
-// ConversationMessagesSend funciton.
+// ConversationMessagesSend function.
 //
 // Replies to a conversation
 //
@@ -15,7 +15,7 @@ func (xf *XF) ConversationMessagesSend(params Params) (response object.Conversat
 	return
 }
 
-// ConversationMessagesGet funciton.
+// ConversationMessagesGet function.
 //
 // Gets the specified conversation message.
 //
@@ -25,7 +25,7 @@ func (xf *XF) ConversationMessagesGet(id int) (response object.ConversationMessa
 	return
 }
 
-// ConversationsGet funciton.
+// ConversationsGet function.
 //
 // Gets the API user's list of conversations.
 //
@@ -35,7 +35,7 @@ func (xf *XF) ConversationsGet(params Params) (response object.ConversationsResp
 	return
 }
 
-// ConversationsCreate funciton.
+// ConversationsCreate function.
 //
 // Creates a conversation.
 //
@@ -45,7 +45,7 @@ func (xf *XF) ConversationsCreate(params Params) (response object.ConversationsR
 	return
 }
 
-// ConversationsGetID funciton.
+// ConversationsGetID function.
 //
 // Gets information about the specified conversation.
 //

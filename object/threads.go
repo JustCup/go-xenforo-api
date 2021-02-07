@@ -34,3 +34,9 @@ type Thread struct {
 	PrefixID               int               `json:"prefix_id"`
 	User                   User              `json:"user"`
 }
+
+// Thread struct.
+type ThreadResponse struct {
+	Success bool   `json:"success"`
+	Thread  Thread `json:"thread"`
+}

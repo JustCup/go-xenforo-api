@@ -3,7 +3,7 @@ import (
 	"github.com/JustCup/go-xenforo-api/object"
 )
 
-// Auth funciton.
+// Auth function.
 //
 // Tests a login and password for validity. Only available to super user keys.
 //

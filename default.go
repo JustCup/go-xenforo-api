@@ -1,4 +1,4 @@
 package goxenforoapi
 
 // Version package.
-const Version = "1.0.3"
+const Version = "1.1.0"

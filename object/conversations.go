@@ -43,13 +43,13 @@ type ConversationMessage struct {
 	User              User          `json:"User"`
 }
 
-// ConversationMessagesResponse sturct.
+// ConversationMessagesResponse struct.
 type ConversationMessagesResponse struct {
 	Success bool                `json:"success,omitempty"`
 	Message ConversationMessage `json:"message"`
 }
 
-// ConversationsResponse sturct.
+// ConversationsResponse struct.
 type ConversationsResponse struct {
 	Success       bool                  `json:"success,omitempty"`
 	Conversation  Conversation          `json:"conversation"`

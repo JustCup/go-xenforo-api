@@ -6,7 +6,7 @@ import (
 	"github.com/JustCup/go-xenforo-api/object"
 )
 
-// ForumsGet funciton.
+// ForumsGet function.
 //
 // Gets information about the specified forum.
 //
@@ -16,7 +16,7 @@ func (xf *XF) ForumsGet(id int, params Params) (response object.ForumsGet, err e
 	return
 }
 
-// ForumsGetThreads funciton.
+// ForumsGetThreads function.
 //
 // Gets a page of threads from the specified forum.
 //

@@ -5,7 +5,7 @@ import (
 	"github.com/JustCup/go-xenforo-api/object"
 )
 
-// UsersGet funciton.
+// UsersGet function.
 //
 // Gets a list of users (alphabetically).
 //
@@ -15,7 +15,7 @@ func (xf *XF) UsersGet(params Params) (response object.UsersGet, err error) {
 	return
 }
 
-// UsersCreate funciton.
+// UsersCreate function.
 //
 // Creates a user.
 //
@@ -35,7 +35,7 @@ func (xf *XF) UsersFindName(params Params) (response object.UserGetFindName, err
 	return
 }
 
-// UsersGetID funciton.
+// UsersGetID function.
 //
 // Gets information about the specified user.
 //
@@ -45,7 +45,7 @@ func (xf *XF) UsersGetID(id int, params Params) (response object.UsersGetID, err
 	return
 }
 
-// UsersEdit funciton.
+// UsersEdit function.
 //
 // Updates an existing user.
 //

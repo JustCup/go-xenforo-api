@@ -1,6 +1,6 @@
 package object // import "github.com/JustCup/go-xenforo-api/object"
 
-// AuthResponse stuct.
+// AuthResponse struct.
 type AuthResponse struct {
 	User User `json:"user"`
 }
