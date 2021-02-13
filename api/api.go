@@ -13,7 +13,7 @@ import (
 )
 
 // UserAgent for requests.
-const UserAgent string = "goXenForoSDK/" + xenforoSDK.Version + ".xf2.1 (+https://github.com/JustCup/xenforo-sdk)"
+const UserAgent string = "goXenForoSDK/" + xenforoSDK.Version + ".xf2.2 (+https://github.com/JustCup/xenforo-sdk)"
 
 // XF struct.
 type XF struct {
@@ -26,7 +26,7 @@ type Params map[string]interface{}
 
 // Init function.
 //
-// Insert APIEndpoint(full url without, example: https://example.com/forum/api) and XenForo API key.
+// Insert APIEndpoint(full url w/o method, example: https://example.com/forum/api) and XenForo API key.
 func Init(url string, apiKey string) *XF {
 	var xf XF
 	xf.APIEndpoint = url
