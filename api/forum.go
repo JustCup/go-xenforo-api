@@ -22,7 +22,7 @@ func (xf *XF) Forums(id int, params Params) (response object.ForumsResponse, err
 //
 // https://xenforo.com/community/pages/api-endpoints/#route_post_forums_id_mark_read
 func (xf *XF) ForumsMarkRead(id int, params Params) (response object.ForumsResponse, err error) {
-	err = xf.RequestUnmarshal("GET", fmt.Sprintf("%s/%d/%s", "forums", id, "mark-read"), params, &response)
+	err = xf.RequestUnmarshal("POST", fmt.Sprintf("%s/%d/%s", "forums", id, "mark-read"), params, &response)
 	return
 }
 
