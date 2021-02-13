@@ -2,7 +2,8 @@ package api
 
 import (
 	"fmt"
-	"github.com/JustCup/go-xenforo-api/object"
+
+	"github.com/JustCup/xenforo-sdk/object"
 )
 
 // ThreadsIDMove function.

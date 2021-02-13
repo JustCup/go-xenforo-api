@@ -1,4 +1,4 @@
-package api // import "github.com/JustCup/go-xenforo-api/api"
+package api // import "github.com/JustCup/xenforo-sdk/api"
 import (
 	"bytes"
 	"encoding/json"
@@ -8,12 +8,12 @@ import (
 	"net/url"
 	"strconv"
 
-	goxenforoapi "github.com/JustCup/go-xenforo-api"
-	"github.com/JustCup/go-xenforo-api/object"
+	xenforoSDK "github.com/JustCup/xenforo-sdk"
+	"github.com/JustCup/xenforo-sdk/object"
 )
 
 // UserAgent for requests.
-const UserAgent string = "goXenForoAPI/" + goxenforoapi.Version + ".xf2.1 (+https://github.com/JustCup/go-xenforo-api)"
+const UserAgent string = "goXenForoSDK/" + xenforoSDK.Version + ".xf2.1 (+https://github.com/JustCup/xenforo-sdk)"
 
 // XF struct.
 type XF struct {
@@ -24,7 +24,7 @@ type XF struct {
 // Params type.
 type Params map[string]interface{}
 
-// Init XF API.
+// Init function.
 //
 // Insert APIEndpoint(full url without, example: https://example.com/forum/api) and XenForo API key.
 func Init(url string, apiKey string) *XF {

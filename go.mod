@@ -1,3 +1,3 @@
-module github.com/JustCup/go-xenforo-api
+module github.com/JustCup/xenforo-sdk
 
 go 1.14

@@ -1,6 +1,6 @@
-package api // import "github.com/JustCup/go-xenforo-api/api"
+package api // import "github.com/JustCup/xenforo-sdk/api"
 import (
-	"github.com/JustCup/go-xenforo-api/object"
+	"github.com/JustCup/xenforo-sdk/object"
 )
 
 // Auth function.

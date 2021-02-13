@@ -1,4 +1,4 @@
-package object // import "github.com/JustCup/go-xenforo-api/object"
+package object // import "github.com/JustCup/xenforo-sdk/object"
 
 // Thread struct.
 type Thread struct {
