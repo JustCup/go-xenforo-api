@@ -27,26 +27,22 @@ type Conversation struct {
 // ConversationMessage struct.
 type ConversationMessage struct {
 	Username          string        `json:"username"`
+	MessageParsed     string        `json:"message_parsed"` // HTML parsed version of the message contents.
 	CanEdit           bool          `json:"can_edit"`
 	CanReact          bool          `json:"can_react"`
+	ViewURL           string        `json:"view_url"`
 	Conversation      Conversation  `json:"Conversation"`        // Conditionally returned. If requested by context, the conversation this message is part of.
 	Attachments       []interface{} `json:"Attachments"`         // Conditionally returned. If there are attachments to this message, a list of attachments.
 	IsReactedTo       bool          `json:"is_reacted_to"`       // True if the viewing user has reacted to this content.
-	VisitorReactionID int           `json:"visitor_reaction_id"` // If the viewer reacted, the ID of the reaction they used.
-	MessageID         int           `json:"message_id"`
-	ConversationID    int           `json:"conversation_id"`
-	MessageDate       int           `json:"message_date"`
-	UserID            int           `json:"user_id"`
-	Message           int           `json:"message"`
-	AttachCount       int           `json:"attach_count"`
-	ReactionScore     int           `json:"reaction_score"`
+	VisitorReactionID uint          `json:"visitor_reaction_id"` // If the viewer reacted, the ID of the reaction they used.
+	MessageID         uint          `json:"message_id"`
+	ConversationID    uint          `json:"conversation_id"`
+	MessageDate       uint32        `json:"message_date"`
+	UserID            uint          `json:"user_id"`
+	Message           string        `json:"message"`
+	AttachCount       uint          `json:"attach_count"`
+	ReactionScore     uint          `json:"reaction_score"`
 	User              User          `json:"User"`
-}
-
-// ConversationMessagesResponse struct.
-type ConversationMessagesResponse struct {
-	Success bool                `json:"success,omitempty"`
-	Message ConversationMessage `json:"message"`
 }
 
 // ConversationsResponse struct.
@@ -54,6 +50,8 @@ type ConversationsResponse struct {
 	Success       bool                  `json:"success,omitempty"`
 	Conversation  Conversation          `json:"conversation"`
 	Conversations []Conversation        `json:"conversations"`
+	Message       ConversationMessage   `json:"message"`
+	Action        string                `json:"action"`
 	Messages      []ConversationMessage `json:"messages"`
 	Pagination    Pagination            `json:"pagination"`
 }
