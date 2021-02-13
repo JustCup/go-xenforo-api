@@ -85,13 +85,13 @@ func (xf *XF) ConversationsUpdate(id int, params Params) (response object.Conver
 	return
 }
 
-// ConversationsUpdate function.
+// ConversationsDelete function.
 //
 // Deletes the specified conversation from the API user's list. Does not delete the conversation for other receivers.
 //
 // https://xenforo.com/community/pages/api-endpoints/#route_delete_conversations_id_
 func (xf *XF) ConversationsDelete(id int, params Params) (response object.ConversationsResponse, err error) {
-	err = xf.RequestUnmarshal("POST", fmt.Sprintf("conversations/%d/", id), params, &response)
+	err = xf.RequestUnmarshal("DELETE", fmt.Sprintf("conversations/%d/", id), params, &response)
 	return
 }
 
